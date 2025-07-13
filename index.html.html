@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>La Huerta de Carmela LA SEVILLANA</title>
+  <style>
+    @font-face {
+      font-family: 'HillsideCalligraphy';
+      src: url('fonts/HillsideCalligraphy.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Georgia, serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fffaf0;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #f0e68c;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    /* Título con fuente HillsideCalligraphy */
+    header h1 {
+      font-family: 'HillsideCalligraphy', cursive;
+      color: 006400;
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    header h2 {
+      font-size: 1.5rem;
+      color: #008b35;
+      margin-top: 0.5rem;
+      font-family: Georgia, serif; /* Por si quieres forzar que no herede */
+    }
+
+    .bienvenida {
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    nav {
+      background-color: #60c84e;
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      background-color: #13a22b;
+      padding: 0.6rem 1rem;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 1rem;
+      font-family: Georgia, serif;
+    }
+
+    nav a:hover {
+      background-color: #008b35;
+    }
+
+    section {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* Productos en fila, varios por fila */
+    .productos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      padding: 1rem;
+      overflow-x: visible; /* para quitar el scroll horizontal */
+    }
+
+    .producto {
+      background-color: #fefee2;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      width: 200px;
+      text-align: center;
+      padding: 1rem;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+      flex-shrink: 0;
+      font-family: Georgia, serif;
+    }
+
+    .producto img {
+      width: 100%;
+      border-radius: 10px;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .producto h3 {
+      margin: 0.5rem 0;
+      color: #006400;
+      font-family: Georgia, serif;
+    }
+
+    .sobre {
+      background-color: #e0ffd1;
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      font-family: Georgia, serif;
+    }
+
+    .contacto {
+      background-color: #d0e8ff;
+      text-align: center;
+      padding: 2rem;
+      border-radius: 10px;
+      font-family: Georgia, serif;
+    }
+
+    .contacto p {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+    }
+
+    a.whatsapp {
+      background-color: #25D366;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 1rem;
+      font-family: Georgia, serif;
+    }
+
+    a.whatsapp:hover {
+      background-color: #1ebc5d;
+    }
+
+    footer {
+      background-color: #13a22b;
+      text-align: center;
+      padding: 1rem;
+      color: white;
+      font-size: 1rem;
+      margin-top: auto;
+      font-family: Georgia, serif;
+    }
+
+    .pagina {
+      display: none;
+    }
+
+    .pagina.activa {
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header h2 {
+        font-size: 1.2rem;
+      }
+
+      .producto {
+        width: 160px;
+      }
+
+      nav a {
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sección principal / inicio -->
+  <header id="inicio" class="pagina activa">
+    <h1>La Huerta de Carmela LA SEVILLANA</h1>
+    <h2>¡Auténtico sabor baezano, directo de nuestra huerta a tu mesa!</h2>
+    <p class="bienvenida">Bienvenido a nuestra huerta de frutas y verduras frescas. Desde Baeza, directamente de la huerta a tu mesa, como hacía Carmela.</p>
+  </header>
+
+  <!-- Menú (siempre visible) -->
+  <nav>
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#conocenos">Conócenos</a></li>
+    </ul>
+  </nav>
+
+  <!-- Imagen de la huerta debajo del menú, solo en Inicio -->
+  <section id="imagen-inicio" class="pagina activa" style="text-align:center; padding: 1rem 0;">
+    <img src="joni.JPG" alt="Imagen de la huerta" style="max-width:45%; border-radius:10px;" />
+  </section>
+
+  <!-- Productos -->
+  <section class="productos pagina" id="productos">
+    <div class="producto"><img src="tomates.JPG.jpg" alt="Tomates"><h3>Tomates</h3></div>
+    <div class="producto"><img src="pepinos.JPG.jpg" alt="Pepinos"><h3>Pepinos</h3></div>
+    <div class="producto"><img src="berenjenas.jpg.jpg" alt="Berenjenas"><h3>Berenjenas</h3></div>
+    <div class="producto"><img src="pimientos.jpg.jpg" alt="Pimientos"><h3>Pimientos</h3></div>
+    <div class="producto"><img src="patatas.jpg.jpg" alt="Patatas"><h3>Patatas</h3></div>
+    <div class="producto"><img src="sandias.jpg.jpg" alt="Sandías"><h3>Sandías</h3></div>
+    <div class="producto"><img src="acelgas.JPG.JPG" alt="Acelgas"><h3>Acelgas</h3></div>
+  </section>
+
+  <!-- Contacto -->
+  <section class="contacto pagina" id="contacto">
+    <h2>Contacto</h2>
+    <p>¿Quieres hacer tu pedido o preguntar algo? ¡Escríbenos por WhatsApp o llámanos!</p>
+    <p>📞 <strong>634 601 673</strong></p>
+    <a href="https://wa.me/34634601673" class="whatsapp" target="_blank">Pedir por WhatsApp</a>
+  </section>
+
+  <!-- Conócenos -->
+  <section class="sobre pagina" id="conocenos">
+    <h2>¿Quién era Carmela?</h2>
+    <p>Carmela, la Sevillana.
+        Así la conocían todos en la plaza. Con su delantal siempre limpio y su sonrisa incansable, dedicó más de 50 años de su vida a vender fruta y verdura con el alma, no solo con las manos. Servía al pueblo con cariño, con esa cercanía que solo ella sabía dar, y con un amor inmenso por su tierra y por su gente.
+        
+        Hoy, seguimos su legado con el mismo corazón. Desde la huerta hasta tu casa, llevamos en cada pieza de fruta y en cada verdura ese respeto por lo natural, ese trato amable y esa forma de hacer las cosas que ella nos enseñó: con cuidado, con entrega y con una sonrisa.
+        Porque Carmela ya no está, pero su espíritu sigue presente en cada paso que damos.</p>
+    <div style="text-align:center; margin-top: 1rem;">
+      <img src="abuela puesto.JPG" alt="Imagen Conócenos" style="max-width: 100%; border-radius: 10px;" />
+    </div>
+  </section>
+
+  <!-- Footer siempre visible abajo -->
+  <footer>
+    Gracias por confiar en nuestra tierra. ¡La Huerta de Carmela siempre contigo!  Página diseñada por @diegojcv98
+  </footer>
+
+  <script>
+    function mostrarSeccion(id) {
+      document.querySelectorAll('.pagina').forEach(sec => {
+        sec.classList.remove('activa');
+      });
+
+      const seccion = document.getElementById(id);
+      const imagenInicio = document.getElementById('imagen-inicio');
+
+      // Mostrar la sección principal e imagen juntos solo en "inicio"
+      if (id === 'inicio') {
+        if (seccion) seccion.classList.add('activa');
+        if (imagenInicio) imagenInicio.classList.add('activa');
+      } else {
+        if (seccion) seccion.classList.add('activa');
+        if (imagenInicio) imagenInicio.classList.remove('activa');
+      }
+
+      window.scrollTo(0, 0);
+    }
+
+    document.querySelectorAll('nav a').forEach(enlace => {
+      enlace.addEventListener('click', function (e) {
+        e.preventDefault();
+        const id = this.getAttribute('href').replace('#', '');
+        mostrarSeccion(id);
+      });
+    });
+
+    // Al cargar, mostrar solo la portada (inicio + imagen)
+    mostrarSeccion('inicio');
+  </script>
+
+</body>
+</html>
