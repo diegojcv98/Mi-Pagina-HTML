@@ -33,7 +33,6 @@
       padding: 2rem 1rem;
     }
 
-    /* Título con fuente HillsideCalligraphy */
     header h1 {
       font-family: 'HillsideCalligraphy', cursive;
       color: 006400;
@@ -45,7 +44,7 @@
       font-size: 1.5rem;
       color: #008b35;
       margin-top: 0.5rem;
-      font-family: Georgia, serif; /* Por si quieres forzar que no herede */
+      font-family: Georgia, serif;
     }
 
     .bienvenida {
@@ -90,14 +89,13 @@
       margin: auto;
     }
 
-    /* Productos en fila, varios por fila */
     .productos {
       display: flex;
       flex-wrap: wrap;
       gap: 1.5rem;
       justify-content: center;
       padding: 1rem;
-      overflow-x: visible; /* para quitar el scroll horizontal */
+      overflow-x: visible;
     }
 
     .producto {
@@ -202,14 +200,12 @@
 </head>
 <body>
 
-  <!-- Sección principal / inicio -->
   <header id="inicio" class="pagina activa">
     <h1>La Huerta de Carmela La Sevillana</h1>
     <h2>¡Auténtico sabor baezano, directo de nuestra huerta a tu mesa!</h2>
     <p class="bienvenida">Bienvenido a nuestra huerta de frutas y verduras frescas. Desde Baeza, directamente de la huerta a tu mesa, como hacía Carmela.</p>
   </header>
 
-  <!-- Menú (siempre visible) -->
   <nav>
     <ul>
       <li><a href="#inicio">Inicio</a></li>
@@ -219,12 +215,10 @@
     </ul>
   </nav>
 
-  <!-- Imagen de la huerta debajo del menú, solo en Inicio -->
   <section id="imagen-inicio" class="pagina activa" style="text-align:center; padding: 1rem 0;">
     <img src="camion genero.JPG.jpg" alt="Imagen de la huerta" style="max-width:65%; border-radius:10px;" />
   </section>
 
-  <!-- Productos -->
   <section class="productos pagina" id="productos">
     <div class="producto"><img src="tomates.JPG.jpg" alt="Tomates"><h3>Tomates</h3></div>
     <div class="producto"><img src="pepinos.JPG.jpg" alt="Pepinos"><h3>Pepinos</h3></div>
@@ -235,30 +229,27 @@
     <div class="producto"><img src="acelgas.JPG.JPG" alt="Acelgas"><h3>Acelgas</h3></div>
   </section>
 
-  <!-- Contacto -->
   <section class="contacto pagina" id="contacto">
     <h2>Contacto</h2>
     <p>¿Quieres hacer tu pedido o preguntar algo? ¡Escríbenos por WhatsApp o llámanos!</p>
     <p>📞 <strong>634 601 673</strong></p>
-    <a href="https://wa.me/34634601673" class="whatsapp" target="_blank">Pedir por WhatsApp</a>
+    <a href="#" class="whatsapp" id="whatsappBtn">Pedir por WhatsApp</a>
+    <p style="font-size: 0.9rem; margin-top: 0.5rem; color: #333;">🕒 Horario de atención: 8:00–14:00 y 16:00–21:00</p>
+    <p id="mensajeHorario" style="display:none; color: red; font-size: 0.9rem; margin-top: 0.5rem;">Estamos fuera de horario. Intenta contactarnos entre las 8–14h o 16–21h.</p>
   </section>
 
-  <!-- Conócenos -->
   <section class="sobre pagina" id="conocenos">
     <h2>¿Quién era Carmela?</h2>
-    <p>Carmela, la Sevillana.
-        Así la conocían todos en la plaza. Con su delantal siempre limpio y su sonrisa incansable, dedicó más de 50 años de su vida a vender fruta y verdura con el alma, no solo con las manos. Servía al pueblo con cariño, con esa cercanía que solo ella sabía dar, y con un amor inmenso por su tierra y por su gente.
-        
-        Hoy, seguimos su legado con el mismo corazón. Desde la huerta hasta tu casa, llevamos en cada pieza de fruta y en cada verdura ese respeto por lo natural, ese trato amable y esa forma de hacer las cosas que ella nos enseñó: con cuidado, con entrega y con una sonrisa.
-        Porque Carmela ya no está, pero su espíritu sigue presente en cada paso que damos.</p>
+    <p>Carmela, la Sevillana. Así la conocían todos en la plaza. Con su delantal siempre limpio y su sonrisa incansable, dedicó más de 50 años de su vida a vender fruta y verdura con el alma, no solo con las manos. Servía al pueblo con cariño, con esa cercanía que solo ella sabía dar, y con un amor inmenso por su tierra y por su gente.
+      Hoy, seguimos su legado con el mismo corazón. Desde la huerta hasta tu casa, llevamos en cada pieza de fruta y en cada verdura ese respeto por lo natural, ese trato amable y esa forma de hacer las cosas que ella nos enseñó: con cuidado, con entrega y con una sonrisa.
+      Porque Carmela ya no está, pero su espíritu sigue presente en cada paso que damos.</p>
     <div style="text-align:center; margin-top: 1rem;">
       <img src="abuela puesto.JPG" alt="Imagen Conócenos" style="max-width: 100%; border-radius: 10px;" />
     </div>
   </section>
 
-  <!-- Footer siempre visible abajo -->
   <footer>
-    Gracias por confiar en nuestra tierra. ¡La Huerta de Carmela siempre contigo!  Página diseñada por @diegojcv98
+    Gracias por confiar en nuestra tierra. ¡La Huerta de Carmela siempre contigo! Página diseñada por @diegojcv98
   </footer>
 
   <script>
@@ -270,7 +261,6 @@
       const seccion = document.getElementById(id);
       const imagenInicio = document.getElementById('imagen-inicio');
 
-      // Mostrar la sección principal e imagen juntos solo en "inicio"
       if (id === 'inicio') {
         if (seccion) seccion.classList.add('activa');
         if (imagenInicio) imagenInicio.classList.add('activa');
@@ -290,9 +280,29 @@
       });
     });
 
-    // Al cargar, mostrar solo la portada (inicio + imagen)
     mostrarSeccion('inicio');
+
+    document.getElementById('whatsappBtn').addEventListener('click', function (e) {
+      e.preventDefault();
+      const ahora = new Date();
+      const hora = ahora.getHours();
+      const minutos = ahora.getMinutes();
+      const horaDecimal = hora + minutos / 60;
+
+      const enHorario = (horaDecimal >= 8 && horaDecimal < 14) || (horaDecimal >= 16 && horaDecimal < 21);
+
+      if (enHorario) {
+        window.open("https://wa.me/34634601673", "_blank");
+      } else {
+        const mensaje = document.getElementById("mensajeHorario");
+        mensaje.style.display = "block";
+        setTimeout(() => {
+          mensaje.style.display = "none";
+        }, 4000);
+      }
+    });
   </script>
 
 </body>
 </html>
+
